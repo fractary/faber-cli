@@ -35,3 +35,7 @@ coverage/
 tmp/
 temp/
 *.tmp
+
+# Test artifacts
+.faber/
+*.tgz
