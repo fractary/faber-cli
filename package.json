@@ -17,7 +17,9 @@
     "test": "jest",
     "lint": "eslint src --ext .ts",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "prepare": "npm run build:simple",
+    "build:simple": "npx tsc src/cli/simple.ts --outDir dist --module commonjs --target ES2020 --esModuleInterop --resolveJsonModule --skipLibCheck && mv dist/simple.js dist/cli/simple.js 2>/dev/null || true",
+    "prepublishOnly": "npm run build:simple"
   },
   "keywords": [
     "ai",
