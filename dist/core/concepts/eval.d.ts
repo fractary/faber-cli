@@ -47,9 +47,9 @@ export declare class EvalLoader extends BaseConceptLoader<Eval> {
         success_threshold: z.ZodOptional<z.ZodNumber>;
         platforms: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
+        platforms?: string[];
         name?: string;
         description?: string;
-        platforms?: string[];
         targets?: string[];
         scenarios?: {
             name?: string;
@@ -65,9 +65,9 @@ export declare class EvalLoader extends BaseConceptLoader<Eval> {
         }[];
         success_threshold?: number;
     }, {
+        platforms?: string[];
         name?: string;
         description?: string;
-        platforms?: string[];
         targets?: string[];
         scenarios?: {
             name?: string;

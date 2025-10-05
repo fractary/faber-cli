@@ -15,7 +15,9 @@ export interface Context {
     name: string;
     content: string;
     frontmatter?: ContextFrontmatter;
+    metadata?: ContextFrontmatter;
     filePath?: string;
+    path?: string;
 }
 export interface ContextFrontmatter {
     category?: ContextCategory;

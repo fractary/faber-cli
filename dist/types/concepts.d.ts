@@ -1,6 +1,8 @@
 /**
  * Concept type definitions
  */
+import { Context } from './contexts';
+import { BindingConfig } from './config';
 export declare enum ConceptType {
     ROLE = "role",
     TOOL = "tool",
@@ -13,14 +15,14 @@ export interface Concept {
     type: ConceptType;
     description?: string;
 }
-export interface Role extends Concept {
-    type: ConceptType.ROLE;
+export interface Role {
+    metadata: RoleMetadata;
+    path: string;
     prompt: string;
-    tasks?: Task[];
-    flows?: Flow[];
-    contexts?: Context[];
-    platforms?: string[];
-    mcp_servers?: string[];
+    tasks: Map<string, Task>;
+    flows: Map<string, Flow>;
+    contexts: Map<string, Context>;
+    bindings?: Map<string, BindingConfig>;
 }
 export interface Team extends Concept {
     type: ConceptType.TEAM;
@@ -97,16 +99,13 @@ export interface Task {
     name: string;
     description?: string;
     content?: string;
+    path?: string;
 }
 export interface Flow {
     name: string;
     description?: string;
     content?: string;
-}
-export interface Context {
-    category: string;
-    name: string;
-    content: string;
+    path?: string;
 }
 export interface ConceptReference {
     type: ConceptType;
@@ -117,6 +116,15 @@ export interface ConceptMetadata {
     description?: string;
     org?: string;
     system?: string;
+    type?: ConceptType;
     [key: string]: any;
+}
+export interface RoleMetadata extends ConceptMetadata {
+    type: ConceptType.ROLE;
+    platforms?: string[];
+    default_platform?: string;
+    platform_config_key?: string;
+    color?: string;
+    agent_type?: 'autonomous' | 'interactive' | 'batch';
 }
 //# sourceMappingURL=concepts.d.ts.map

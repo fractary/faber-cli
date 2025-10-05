@@ -13,7 +13,7 @@ This guide will walk you through installing Faber-CLI, creating your first AI ag
 ### Global Installation (Recommended)
 
 ```bash
-npm install -g @fractary/faber
+npm install -g @fractary/faber-cli
 ```
 
 ### Local Development
@@ -332,7 +332,7 @@ Now that you have your first role:
 ### Common Issues
 
 **Issue**: `faber: command not found`
-- Solution: Ensure global installation or use `npx @fractary/faber`
+- Solution: Ensure global installation or use `npx @fractary/faber-cli`
 
 **Issue**: Validation errors
 - Solution: Check metadata schema and required fields

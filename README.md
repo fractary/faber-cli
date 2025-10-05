@@ -43,7 +43,7 @@ Faber-CLI is a revolutionary AI agent orchestration platform that enables you to
 ### Installation
 
 ```bash
-npm install -g @fractary/faber
+npm install -g @fractary/faber-cli
 ```
 
 ### Initialize a Project

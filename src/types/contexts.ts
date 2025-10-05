@@ -17,7 +17,9 @@ export interface Context {
   name: string;
   content: string;
   frontmatter?: ContextFrontmatter;
+  metadata?: ContextFrontmatter; // Alias for frontmatter for backward compatibility
   filePath?: string;
+  path?: string; // Alias for filePath
 }
 
 export interface ContextFrontmatter {

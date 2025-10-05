@@ -51,7 +51,8 @@ export interface ValidationResult {
 export interface ValidationError {
   path: string;
   message: string;
-  code: string;
+  code?: string;
+  type?: 'error' | 'warning';
 }
 
 export interface ValidationWarning {

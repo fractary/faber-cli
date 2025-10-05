@@ -1,7 +1,7 @@
 {
-  "name": "@fractary/faber",
+  "name": "@fractary/faber-cli",
   "version": "0.1.0",
-  "description": "Universal AI agent orchestration platform - write once, deploy everywhere",
+  "description": "CLI for Faber - Universal AI agent orchestration platform",
   "main": "dist/index.js",
   "bin": {
     "faber": "dist/cli/simple.js"
@@ -44,8 +44,9 @@
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
+    "@types/handlebars": "^4.0.40",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.11.0",
+    "@types/node": "^20.19.19",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
     "eslint": "^8.56.0",

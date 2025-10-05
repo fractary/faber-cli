@@ -2,6 +2,9 @@
  * Concept type definitions
  */
 
+import { Context } from './contexts';
+import { BindingConfig } from './config';
+
 // Base concept types
 export enum ConceptType {
   ROLE = 'role',
@@ -19,14 +22,14 @@ export interface Concept {
 }
 
 // Role concept
-export interface Role extends Concept {
-  type: ConceptType.ROLE;
+export interface Role {
+  metadata: RoleMetadata;
+  path: string;
   prompt: string;
-  tasks?: Task[];
-  flows?: Flow[];
-  contexts?: Context[];
-  platforms?: string[];
-  mcp_servers?: string[];
+  tasks: Map<string, Task>;
+  flows: Map<string, Flow>;
+  contexts: Map<string, Context>;
+  bindings?: Map<string, BindingConfig>;
 }
 
 // Team concept
@@ -120,20 +123,17 @@ export interface Task {
   name: string;
   description?: string;
   content?: string;
+  path?: string;
 }
 
 export interface Flow {
   name: string;
   description?: string;
   content?: string;
+  path?: string;
 }
 
-// Context (imported from contexts)
-export interface Context {
-  category: string;
-  name: string;
-  content: string;
-}
+// Context is defined in contexts.ts and re-exported from index.ts
 
 // Concept reference
 export interface ConceptReference {
@@ -147,5 +147,16 @@ export interface ConceptMetadata {
   description?: string;
   org?: string;
   system?: string;
+  type?: ConceptType;
   [key: string]: any;
+}
+
+// Role-specific metadata
+export interface RoleMetadata extends ConceptMetadata {
+  type: ConceptType.ROLE;
+  platforms?: string[];
+  default_platform?: string;
+  platform_config_key?: string;
+  color?: string;
+  agent_type?: 'autonomous' | 'interactive' | 'batch';
 }
