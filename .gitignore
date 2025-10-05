@@ -1,11 +1,8 @@
 # Dependencies
 node_modules/
 
-# Build output (keeping dist/cli/simple.js for GitHub installs)
-dist/*
-!dist/cli/
-dist/cli/*
-!dist/cli/simple.js
+# Build output - NOT ignoring dist for GitHub installs
+# dist/
 *.tsbuildinfo
 
 # IDE
