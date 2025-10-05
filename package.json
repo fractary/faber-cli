@@ -1,0 +1,61 @@
+{
+  "name": "@fractary/faber",
+  "version": "0.1.0",
+  "description": "Universal AI agent orchestration platform - write once, deploy everywhere",
+  "main": "dist/index.js",
+  "bin": {
+    "faber": "dist/cli/index.js"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "orchestration",
+    "mcp",
+    "claude",
+    "langgraph",
+    "crewai"
+  ],
+  "author": "Fractary Team",
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "cosmiconfig": "^9.0.0",
+    "glob": "^10.3.10",
+    "handlebars": "^4.7.8",
+    "js-yaml": "^4.1.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fractary/faber-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fractary/faber-cli/issues"
+  },
+  "homepage": "https://github.com/fractary/faber-cli#readme"
+}
