@@ -5,6 +5,11 @@ status: draft
 created: 2025-01-19
 updated: 2025-01-19
 authors: [Fractary Team]
+implementation_status: not_implemented
+implementation_notes: |
+  MCP server configuration structure defined and validated, but actual
+  MCP server launching, communication, and tool execution not implemented.
+  This requires MCP protocol implementation.
 ---
 
 # MCP Server Integration

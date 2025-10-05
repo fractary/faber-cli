@@ -5,6 +5,11 @@ status: draft
 created: 2025-01-19
 updated: 2025-01-19
 authors: [Fractary Team]
+implementation_status: complete
+implementation_notes: |
+  Fully implemented. Cascading overlay resolution, configuration merging,
+  context collection, conflict detection, and all overlay types (organization,
+  platform, role, team, workflow) working.
 ---
 
 # Overlay System - Customization Without Forking

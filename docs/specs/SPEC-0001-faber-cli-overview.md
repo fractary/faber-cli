@@ -5,6 +5,11 @@ status: draft
 created: 2025-01-19
 updated: 2025-01-19
 authors: [Fractary Team]
+implementation_status: partial
+implementation_notes: |
+  Core architecture implemented. TypeScript project structure, concept system,
+  context system, overlay system, configuration system, and Claude Code binding complete.
+  Missing: Additional bindings (LangGraph, CrewAI), marketplace/registry, visual designer.
 ---
 
 # Faber-CLI Overview and Architecture

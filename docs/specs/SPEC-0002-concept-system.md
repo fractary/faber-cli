@@ -5,6 +5,11 @@ status: draft
 created: 2025-01-19
 updated: 2025-01-19
 authors: [Fractary Team]
+implementation_status: partial
+implementation_notes: |
+  Role concept fully implemented with loader and validator.
+  Other concepts (Tool, Eval, Team, Workflow) have metadata schemas defined
+  but loaders not yet implemented. Concept reference system working.
 ---
 
 # Concept System - Five First-Class Orchestration Concepts

@@ -5,6 +5,11 @@ status: draft
 created: 2025-01-19
 updated: 2025-01-19
 authors: [Fractary Team]
+implementation_status: partial
+implementation_notes: |
+  Platform detection and context loading implemented. Platform contexts as MCP
+  adapters conceptually supported but actual MCP server integration not yet implemented.
+  Need to add MCP server launching and communication.
 ---
 
 # Platform Abstraction via MCP and Platform Contexts

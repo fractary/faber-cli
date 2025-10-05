@@ -5,6 +5,10 @@ status: draft
 created: 2025-01-19
 updated: 2025-01-19
 authors: [Fractary Team]
+implementation_status: partial
+implementation_notes: |
+  Core commands implemented: init, create, list, validate, build.
+  Missing: deploy, status, config commands, and overlay-specific commands.
 ---
 
 # CLI Commands

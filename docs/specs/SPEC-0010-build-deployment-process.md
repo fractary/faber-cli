@@ -5,6 +5,11 @@ status: draft
 created: 2025-01-19
 updated: 2025-01-19
 authors: [Fractary Team]
+implementation_status: partial
+implementation_notes: |
+  Build process implemented via 'build' command. Full pipeline working:
+  load, overlay resolution, binding transformation, artifact generation.
+  Deploy command not yet implemented.
 ---
 
 # Build and Deployment Process

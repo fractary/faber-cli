@@ -5,6 +5,11 @@ status: draft
 created: 2025-01-19
 updated: 2025-01-19
 authors: [Fractary Team]
+implementation_status: partial
+implementation_notes: |
+  Binding system architecture implemented. Claude Code binding complete with
+  Handlebars templates. LangGraph and CrewAI bindings not yet implemented.
+  Custom binding support working.
 ---
 
 # Binding System - Framework Abstraction
