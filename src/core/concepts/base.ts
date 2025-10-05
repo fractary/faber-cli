@@ -11,7 +11,8 @@ import {
   ConceptType,
   ConceptMetadata,
   ValidationResult,
-  ValidationError
+  ValidationError,
+  ConceptReference
 } from '../../types';
 
 // Base metadata schema

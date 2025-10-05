@@ -2,7 +2,6 @@
  * Claude Code binding transformer
  */
 
-import * as fs from 'fs/promises';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
 import * as Handlebars from 'handlebars';
@@ -12,7 +11,8 @@ import {
   DeploymentArtifact,
   DeploymentMetadata,
   BindingConfig,
-  ContextCategory
+  ContextCategory,
+  ConceptType
 } from '../../types';
 import { ConceptReferenceImpl } from '../../core/concepts/base';
 import { Overlays } from '../../core/overlays';
@@ -70,10 +70,10 @@ export class ClaudeCodeTransformer {
 
     // Create metadata
     const metadata: DeploymentMetadata = {
-      concept: new ConceptReferenceImpl('role', role.metadata.name),
+      concept: new ConceptReferenceImpl(ConceptType.ROLE, role.metadata.name),
       binding: 'claude-code',
       timestamp: new Date(),
-      config
+      config: config as any
     };
 
     return {

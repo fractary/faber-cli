@@ -5,7 +5,7 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
-import { Context, ContextCategory, Config } from '../../types';
+import { Context, ContextCategory } from '../../types';
 import { ContextLoader } from '../contexts/loader';
 
 export interface Overlays {

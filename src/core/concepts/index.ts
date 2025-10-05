@@ -5,7 +5,8 @@
 export { BaseConceptLoader, ConceptReferenceImpl } from './base';
 export { RoleLoader } from './role';
 
-import { ConceptType, Concept } from '../../types';
+import { ConceptType } from '../../types';
+import { BaseConceptLoader } from './base';
 import { RoleLoader } from './role';
 
 // Factory for creating concept loaders

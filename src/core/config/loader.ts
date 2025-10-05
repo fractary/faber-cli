@@ -2,7 +2,7 @@
  * Configuration loader using cosmiconfig
  */
 
-import { cosmiconfigSync, CosmiconfigResult } from 'cosmiconfig';
+import { cosmiconfigSync } from 'cosmiconfig';
 import * as yaml from 'js-yaml';
 import * as fs from 'fs/promises';
 import * as path from 'path';
@@ -23,8 +23,8 @@ export class ConfigLoader {
       'package.json'
     ],
     loaders: {
-      '.yml': (filepath, content) => yaml.load(content) as Config,
-      '.yaml': (filepath, content) => yaml.load(content) as Config
+      '.yml': (_filepath, content) => yaml.load(content) as Config,
+      '.yaml': (_filepath, content) => yaml.load(content) as Config
     }
   });
 
@@ -182,7 +182,7 @@ export class ConfigLoader {
     let result = this.getDefaultConfig();
 
     for (const config of configs) {
-      result = this.deepMerge(result, config) as Config;
+      result = this.deepMerge(result as any, config as any) as Config;
     }
 
     return result;
