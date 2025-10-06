@@ -6,9 +6,9 @@
  *
  * Available tools:
  * - faber: Universal AI agent orchestration
+ * - codex: Centralized knowledge management
  * - forge: [Coming soon]
  * - helm: [Coming soon]
- * - codex: [Coming soon]
  */
 export {};
 //# sourceMappingURL=cli.d.ts.map

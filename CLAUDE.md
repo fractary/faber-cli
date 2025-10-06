@@ -6,9 +6,9 @@ This document provides critical context and implementation guidance for developi
 
 **Fractary CLI** (`@fractary/cli`) is a unified command-line interface for all Fractary tools:
 - **faber** - Universal AI agent orchestration (write-once, deploy-everywhere)
+- **codex** - Centralized knowledge management and distribution
 - **forge** - [Coming soon]
 - **helm** - [Coming soon]
-- **codex** - [Coming soon]
 
 ## Command Pattern
 
@@ -22,8 +22,9 @@ Examples:
 fractary faber init
 fractary faber create role my-agent
 fractary faber build claude role my-agent
+fractary codex init --org fractary
+fractary codex validate docs/
 fractary forge init
-fractary codex search <query>
 ```
 
 ## Project Vision (Faber)
@@ -85,9 +86,13 @@ This CLI depends on core SDK packages for each tool:
   - Location: `/mnt/c/GitHub/fractary/faber/`
   - No CLI functionality (library only)
 
+- **@fractary/codex** - Core SDK for codex (published to npm)
+  - Contains: metadata parsing, pattern matching, routing, configuration
+  - Location: `/mnt/c/GitHub/fractary/codex/`
+  - Specification: See SPEC-0013
+
 - **@fractary/forge** - Core SDK for forge (coming soon)
 - **@fractary/helm** - Core SDK for helm (coming soon)
-- **@fractary/codex** - Core SDK for codex (coming soon)
 
 ## Implementation Phases
 

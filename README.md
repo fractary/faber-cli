@@ -13,9 +13,9 @@ Fractary CLI is a unified command-line interface that provides access to all Fra
 ### Fractary Tools
 
 - **🎯 Faber** - Universal AI agent orchestration (write-once, deploy-everywhere)
+- **📚 Codex** - Centralized knowledge management and distribution
 - **⚒️ Forge** - [Coming soon]
 - **⎈ Helm** - [Coming soon]
-- **📚 Codex** - [Coming soon]
 
 ## 📦 Installation
 
@@ -71,15 +71,53 @@ workflows/                # Cross-team orchestrations
 deployments/              # Generated artifacts
 ```
 
+### Codex (Knowledge Management)
+
+Codex enables centralized documentation and knowledge distribution across your organization.
+
+**Initialize a Codex project:**
+```bash
+fractary codex init --org fractary
+```
+
+**Validate and analyze documentation:**
+```bash
+# Validate frontmatter metadata
+fractary codex validate docs/
+
+# Parse metadata from a file
+fractary codex parse docs/api-guide.md
+
+# See where a file will sync
+fractary codex route docs/api-guide.md
+```
+
+**Manage configuration:**
+```bash
+# View configuration
+fractary codex config show
+
+# List all documented files
+fractary codex list
+
+# Check sync status
+fractary codex check
+```
+
+**Project structure created:**
+```
+.fractary/
+  codex.config.json       # Codex configuration
+  systems/                # System-specific content
+docs/                     # Documentation with frontmatter
+```
+
 ### Other Tools (Coming Soon)
 
 ```bash
 # Forge
 fractary forge init
 fractary forge create service my-api
-
-# Codex
-fractary codex search <query>
 
 # Helm
 fractary helm deploy <env>
@@ -209,16 +247,26 @@ Common functionality shared across all tools reduces duplication.
 - Claude Code binding
 - CLI commands (init, create, list, validate, build)
 
+### ✅ Complete (Codex)
+- CLI commands (init, validate, parse, config, route, list, check)
+- SDK integration (@fractary/codex)
+- Metadata parsing and validation
+- Routing analysis
+
 ### 🚧 In Progress (Faber)
 - Additional concept loaders (Tools, Teams, Workflows, Evals)
 - LangGraph and CrewAI bindings
 - MCP server integration
 - Deploy command
 
+### 🚧 In Progress (Codex)
+- GitHub Actions integration
+- Sync commands
+- Watch mode
+
 ### 📋 Planned
 - Forge tool integration
 - Helm tool integration
-- Codex tool integration
 
 ## 🤝 Contributing
 
@@ -253,9 +301,9 @@ fractary faber init
 Fractary CLI depends on core SDK packages for each tool:
 
 - **[@fractary/faber](https://www.npmjs.com/package/@fractary/faber)** - Core SDK for Faber
+- **[@fractary/codex](https://www.npmjs.com/package/@fractary/codex)** - Core SDK for Codex
 - **@fractary/forge** - Core SDK for Forge (coming soon)
 - **@fractary/helm** - Core SDK for Helm (coming soon)
-- **@fractary/codex** - Core SDK for Codex (coming soon)
 
 ## 📄 License
 
