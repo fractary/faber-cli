@@ -1,1 +1,1 @@
-{"version":3,"file":"validate.d.ts","sourceRoot":"","sources":["../../../src/cli/commands/validate.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,EAAE,OAAO,EAAE,MAAM,WAAW,CAAC;AAMpC,wBAAgB,eAAe,IAAI,OAAO,CAgDzC"}
+{"version":3,"file":"validate.d.ts","sourceRoot":"","sources":["../../../src/cli/commands/validate.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,EAAE,OAAO,EAAE,MAAM,WAAW,CAAC;AAYpC,wBAAgB,eAAe,IAAI,OAAO,CAmEzC"}

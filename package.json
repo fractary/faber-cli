@@ -1,10 +1,10 @@
 {
-  "name": "@fractary/faber-cli",
-  "version": "0.1.1",
-  "description": "CLI for Faber - Universal AI agent orchestration platform",
+  "name": "@fractary/cli",
+  "version": "0.1.0",
+  "description": "Unified CLI for all Fractary tools (faber, forge, helm, codex, argus)",
   "main": "dist/index.js",
   "bin": {
-    "faber": "dist/cli/simple.js"
+    "fractary": "dist/cli.js"
   },
   "files": [
     "dist",
@@ -17,9 +17,8 @@
     "test": "jest",
     "lint": "eslint src --ext .ts",
     "typecheck": "tsc --noEmit",
-    "prepare": "npm run build:simple",
-    "build:simple": "npx tsc src/cli/simple.ts --outDir dist --module commonjs --target ES2020 --esModuleInterop --resolveJsonModule --skipLibCheck && mv dist/simple.js dist/cli/simple.js 2>/dev/null || true",
-    "prepublishOnly": "npm run build:simple"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "ai",
@@ -55,10 +54,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fractary/faber-cli.git"
+    "url": "git+https://github.com/fractary/fractary-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/fractary/faber-cli/issues"
+    "url": "https://github.com/fractary/fractary-cli/issues"
   },
-  "homepage": "https://github.com/fractary/faber-cli#readme"
+  "homepage": "https://github.com/fractary/fractary-cli#readme"
 }
