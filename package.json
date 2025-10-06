@@ -1,7 +1,7 @@
 {
   "name": "@fractary/cli",
   "version": "0.1.0",
-  "description": "Unified CLI for all Fractary tools (faber, forge, helm, codex, argus)",
+  "description": "Unified CLI for all Fractary tools (faber, forge, helm, codex)",
   "main": "dist/index.js",
   "bin": {
     "fractary": "dist/cli.js"

@@ -10,7 +10,6 @@
  * - forge: [Coming soon]
  * - helm: [Coming soon]
  * - codex: [Coming soon]
- * - argus: [Coming soon]
  */
 
 import { Command } from 'commander';
@@ -35,7 +34,6 @@ program.addCommand(createFaberCommand());
 // program.addCommand(createForgeCommand());
 // program.addCommand(createHelmCommand());
 // program.addCommand(createCodexCommand());
-// program.addCommand(createArgusCommand());
 
 // Show help if no tool specified
 if (process.argv.length === 2) {
@@ -61,7 +59,6 @@ async function main() {
       console.log(chalk.gray('  forge  - [Coming soon]'));
       console.log(chalk.gray('  helm   - [Coming soon]'));
       console.log(chalk.gray('  codex  - [Coming soon]'));
-      console.log(chalk.gray('  argus  - [Coming soon]'));
       console.log(chalk.gray('\nRun "fractary --help" for more information.'));
       process.exit(1);
     }

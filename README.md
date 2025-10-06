@@ -16,7 +16,6 @@ Fractary CLI is a unified command-line interface that provides access to all Fra
 - **⚒️ Forge** - [Coming soon]
 - **⎈ Helm** - [Coming soon]
 - **📚 Codex** - [Coming soon]
-- **👁️ Argus** - [Coming soon]
 
 ## 📦 Installation
 
@@ -84,9 +83,6 @@ fractary codex search <query>
 
 # Helm
 fractary helm deploy <env>
-
-# Argus
-fractary argus monitor <service>
 ```
 
 ## 🏗️ Faber Architecture
@@ -223,7 +219,6 @@ Common functionality shared across all tools reduces duplication.
 - Forge tool integration
 - Helm tool integration
 - Codex tool integration
-- Argus tool integration
 
 ## 🤝 Contributing
 
@@ -261,7 +256,6 @@ Fractary CLI depends on core SDK packages for each tool:
 - **@fractary/forge** - Core SDK for Forge (coming soon)
 - **@fractary/helm** - Core SDK for Helm (coming soon)
 - **@fractary/codex** - Core SDK for Codex (coming soon)
-- **@fractary/argus** - Core SDK for Argus (coming soon)
 
 ## 📄 License
 

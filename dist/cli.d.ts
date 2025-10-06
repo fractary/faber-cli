@@ -9,7 +9,6 @@
  * - forge: [Coming soon]
  * - helm: [Coming soon]
  * - codex: [Coming soon]
- * - argus: [Coming soon]
  */
 export {};
 //# sourceMappingURL=cli.d.ts.map

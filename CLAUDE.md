@@ -9,7 +9,6 @@ This document provides critical context and implementation guidance for developi
 - **forge** - [Coming soon]
 - **helm** - [Coming soon]
 - **codex** - [Coming soon]
-- **argus** - [Coming soon]
 
 ## Command Pattern
 
@@ -68,8 +67,7 @@ fractary-cli/
 │   │   │   └── validate.ts
 │   │   ├── forge/             # Forge commands (coming soon)
 │   │   ├── helm/              # Helm commands (coming soon)
-│   │   ├── codex/             # Codex commands (coming soon)
-│   │   └── argus/             # Argus commands (coming soon)
+│   │   └── codex/             # Codex commands (coming soon)
 │   └── shared/                 # Shared utilities
 ├── docs/
 │   ├── conversations/          # Session summaries
@@ -90,7 +88,6 @@ This CLI depends on core SDK packages for each tool:
 - **@fractary/forge** - Core SDK for forge (coming soon)
 - **@fractary/helm** - Core SDK for helm (coming soon)
 - **@fractary/codex** - Core SDK for codex (coming soon)
-- **@fractary/argus** - Core SDK for argus (coming soon)
 
 ## Implementation Phases
 
