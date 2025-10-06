@@ -1,6 +1,6 @@
 {
   "name": "@fractary/faber-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI for Faber - Universal AI agent orchestration platform",
   "main": "dist/index.js",
   "bin": {
