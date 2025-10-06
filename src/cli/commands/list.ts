@@ -7,7 +7,7 @@ import chalk from 'chalk';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
-import { ConceptType } from '../../types';
+import { ConceptType } from '@fractary/faber';
 
 export function listCommand(): Command {
   return new Command('list')

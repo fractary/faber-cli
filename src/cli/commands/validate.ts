@@ -5,8 +5,14 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import * as path from 'path';
-import { ConceptType } from '../../types';
-import { createConceptLoader } from '../../core/concepts';
+import {
+  ConceptType,
+  RoleLoader,
+  TeamLoader,
+  ToolLoader,
+  WorkflowLoader,
+  EvalLoader
+} from '@fractary/faber';
 
 export function validateCommand(): Command {
   return new Command('validate')
@@ -24,7 +30,26 @@ export function validateCommand(): Command {
         }
 
         // Create loader
-        const loader = createConceptLoader(type as ConceptType);
+        let loader;
+        switch (type as ConceptType) {
+          case ConceptType.ROLE:
+            loader = new RoleLoader();
+            break;
+          case ConceptType.TEAM:
+            loader = new TeamLoader();
+            break;
+          case ConceptType.TOOL:
+            loader = new ToolLoader();
+            break;
+          case ConceptType.WORKFLOW:
+            loader = new WorkflowLoader();
+            break;
+          case ConceptType.EVAL:
+            loader = new EvalLoader();
+            break;
+          default:
+            throw new Error(`Unknown concept type: ${type}`);
+        }
 
         // Load concept
         const conceptPath = path.join(process.cwd(), `${type}s`, name);

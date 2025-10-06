@@ -6,11 +6,17 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import * as path from 'path';
 import * as fs from 'fs/promises';
-import { ConceptType } from '../../types';
-import { createConceptLoader } from '../../core/concepts';
-import { createBinding } from '../../bindings';
-import { ConfigLoader } from '../../core/config';
-import { OverlayResolver } from '../../core/overlays';
+import {
+  ConceptType,
+  ConfigLoader,
+  OverlayResolver,
+  RoleLoader,
+  TeamLoader,
+  ToolLoader,
+  WorkflowLoader,
+  EvalLoader,
+  ClaudeCodeTransformer
+} from '@fractary/faber';
 
 export function buildCommand(): Command {
   return new Command('build')
@@ -30,7 +36,26 @@ export function buildCommand(): Command {
         }
 
         // Load concept
-        const loader = createConceptLoader(type as ConceptType);
+        let loader;
+        switch (type as ConceptType) {
+          case ConceptType.ROLE:
+            loader = new RoleLoader();
+            break;
+          case ConceptType.TEAM:
+            loader = new TeamLoader();
+            break;
+          case ConceptType.TOOL:
+            loader = new ToolLoader();
+            break;
+          case ConceptType.WORKFLOW:
+            loader = new WorkflowLoader();
+            break;
+          case ConceptType.EVAL:
+            loader = new EvalLoader();
+            break;
+          default:
+            throw new Error(`Unknown concept type: ${type}`);
+        }
         const conceptPath = path.join(process.cwd(), `${type}s`, name);
         const concept = await loader.load(conceptPath);
 
@@ -56,10 +81,16 @@ export function buildCommand(): Command {
         }
 
         // Create binding
-        const binding = createBinding(framework);
+        let binding;
+        if (framework === 'claude') {
+          binding = new ClaudeCodeTransformer();
+        } else {
+          throw new Error(`Unknown framework: ${framework}`);
+        }
 
         // Check if binding supports concept type
-        if (!binding.supportedConcepts.includes(type as ConceptType)) {
+        const requirements = binding.getRequirements();
+        if (!requirements.supportedConcepts.includes(type as ConceptType)) {
           throw new Error(`${framework} binding does not support ${type} concepts`);
         }
 
