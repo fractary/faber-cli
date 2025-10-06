@@ -276,8 +276,8 @@ We welcome contributions! Please see our [Contributing Guide](docs/contributing.
 
 ```bash
 # Clone the repository
-git clone https://github.com/fractary/fractary-cli.git
-cd fractary-cli
+git clone https://github.com/fractary/cli.git
+cd cli
 
 # Install dependencies
 npm install
@@ -317,8 +317,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 📮 Support
 
-- **Issues**: [GitHub Issues](https://github.com/fractary/fractary-cli/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/fractary/fractary-cli/discussions)
+- **Issues**: [GitHub Issues](https://github.com/fractary/cli/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/fractary/cli/discussions)
 - **Email**: support@fractary.com
 
 ---

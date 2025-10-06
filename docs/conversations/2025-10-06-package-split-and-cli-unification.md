@@ -315,9 +315,10 @@ fractary-cli/
 ### Status
 - ✅ Strategy decided
 - ✅ `@fractary/faber-cli` unpublished
-- 🔄 **NEXT**: Rename repository (waiting for user)
-- ⏸️ Directory rename will cause context loss
-- 📝 This document preserves context
+- ✅ Unified CLI created and published as `@fractary/cli@0.1.0`
+- ✅ Codex CLI integration completed (see separate log)
+- 🔄 **NEXT**: Repository & directory rename from `fractary-cli` to `cli`
+- 📝 Repository URLs already updated in preparation for rename
 
 ---
 
@@ -380,27 +381,46 @@ After research, decided regular dependencies are best for CLI tools:
 
 ## Files & Locations
 
-### Current Project Structure
+### Current Project Structure (Updated)
 ```
-/mnt/c/GitHub/fractary/faber-cli/    # Soon to be renamed: fractary-cli
+/mnt/c/GitHub/fractary/fractary-cli/    # Next rename: cli
 ├── .faber/
 ├── docs/
 │   ├── conversations/
-│   │   └── 2025-10-06-package-split-and-cli-unification.md  # This file
-│   └── specs/                       # See CLAUDE.md for spec details
+│   │   ├── 2025-10-06-package-split-and-cli-unification.md  # This file
+│   │   └── 2025-10-06-codex-cli-implementation.md           # Codex integration
+│   └── specs/
+│       ├── INDEX.md
+│       ├── SPEC-0013-codex-cli-integration.md
+│       └── (faber specs...)
 ├── src/
-│   └── cli/
-│       ├── commands/
-│       │   ├── build.ts            # Updated imports from @fractary/faber
-│       │   ├── create.ts
-│       │   ├── init.ts
-│       │   ├── list.ts             # Updated imports from @fractary/faber
-│       │   └── validate.ts         # Updated imports from @fractary/faber
-│       ├── index.ts
-│       └── simple.ts               # Main CLI entry point
-├── CLAUDE.md                       # Project instructions for Claude
-├── README.md                       # Will be updated for unified CLI
-├── package.json                    # Currently @fractary/faber-cli@0.1.1
+│   ├── cli.ts                      # Main CLI entry with tool routing
+│   ├── tools/
+│   │   ├── faber/                  # Faber commands (from original cli/commands/)
+│   │   │   ├── index.ts
+│   │   │   ├── init.ts
+│   │   │   ├── create.ts
+│   │   │   ├── build.ts
+│   │   │   ├── list.ts
+│   │   │   └── validate.ts
+│   │   └── codex/                  # Codex commands (newly added)
+│   │       ├── index.ts
+│   │       ├── commands/
+│   │       │   ├── init.ts
+│   │       │   ├── validate.ts
+│   │       │   ├── parse.ts
+│   │       │   ├── config.ts
+│   │       │   ├── route.ts
+│   │       │   ├── list.ts
+│   │       │   └── check.ts
+│   │       └── utils/
+│   │           ├── file-scanner.ts
+│   │           ├── output-formatter.ts
+│   │           └── validation-reporter.ts
+│   └── index.ts
+├── CLAUDE.md                       # Project instructions (updated with codex)
+├── README.md                       # Updated for unified CLI with faber & codex
+├── package.json                    # @fractary/cli@0.1.1
 └── tsconfig.json
 ```
 
@@ -446,32 +466,42 @@ After research, decided regular dependencies are best for CLI tools:
 
 ## Next Steps (After Directory Rename)
 
-1. **Complete Repository Rename**
-   - GitHub: `faber-cli` → `fractary-cli`
-   - Local: Update git remote
-   - Local: Rename directory (will lose context)
+### ✅ Completed (During Subsequent Sessions)
 
-2. **Update package.json**
+1. **✅ Repository Renamed**
+   - GitHub: `faber-cli` → `fractary-cli`
+   - Package name: `@fractary/cli`
+   - Version published: `0.1.1`
+
+2. **✅ package.json Updated**
    - name: `@fractary/cli`
    - bin: `fractary`
-   - description: Unified CLI
-   - version: `0.1.0`
+   - description: Unified CLI for all Fractary tools
+   - version: `0.1.1`
 
-3. **Restructure Source Code**
-   - Create `src/tools/faber/`
-   - Move command files
-   - Create main CLI router
-   - Add tool detection/routing
+3. **✅ Source Code Restructured**
+   - Created `src/tools/faber/`
+   - Created `src/tools/codex/`
+   - Main CLI router in `src/cli.ts`
+   - Tool-based command routing working
 
-4. **Update Documentation**
-   - README.md with new command examples
-   - Update all references from `faber` to `fractary faber`
-   - Migration guide (if needed)
+4. **✅ Documentation Updated**
+   - README.md with command examples for both tools
+   - CLAUDE.md updated with tool information
+   - All references use `fractary <tool>` pattern
 
-5. **Test & Publish**
-   - Build and test locally
-   - Test command routing
-   - Publish `@fractary/cli@0.1.0`
+5. **✅ Tested & Published**
+   - Built and tested successfully
+   - Command routing works for faber and codex
+   - Published `@fractary/cli@0.1.1`
+
+### 🔄 Pending (User Action Required)
+
+1. **Repository & Directory Rename**
+   - GitHub: Rename `fractary-cli` → `cli`
+   - Local: Update directory name
+   - Repository URLs already updated in code
+   - Ready for final rename
 
 ---
 
@@ -517,15 +547,20 @@ b49e0c8 - Add test artifacts to gitignore
    - No CLI functionality
    - Provides loaders, bindings, types
 
-2. **@fractary/faber-cli@0.1.1** ❌ Unpublished
+2. **@fractary/codex@0.1.0** ✅ Live on npm
+   - Core SDK package
+   - Provides metadata parsing, validation, routing logic
+   - Used by CLI for codex commands
+
+3. **@fractary/faber-cli@0.1.1** ❌ Unpublished
    - Published briefly (~1 hour)
    - Unpublished for CLI unification
-   - Being replaced by @fractary/cli
+   - Replaced by @fractary/cli
 
-3. **@fractary/cli** 🔄 Planned
+4. **@fractary/cli@0.1.1** ✅ Live on npm
    - Unified CLI for all Fractary tools
-   - Will replace faber-cli
-   - Version 0.1.0 initial release
+   - Replaced faber-cli successfully
+   - Supports faber and codex commands
 
 ---
 
@@ -542,19 +577,22 @@ b49e0c8 - Add test artifacts to gitignore
 
 ## Important Context for Future Sessions
 
-### This Project Will Be Renamed
-- **Current**: `/mnt/c/GitHub/fractary/faber-cli`
-- **Future**: `/mnt/c/GitHub/fractary/fractary-cli`
-- **Impact**: All prior Claude Code conversation history will be lost
+### This Project Will Be Renamed (Again)
+- **Original**: `/mnt/c/GitHub/fractary/faber-cli`
+- **Current**: `/mnt/c/GitHub/fractary/fractary-cli`
+- **Next**: `/mnt/c/GitHub/fractary/cli` (to match npm package name)
+- **Impact**: Directory rename will lose Claude Code conversation history
 
 ### Related Projects
-- `/mnt/c/GitHub/fractary/faber/` - Core SDK (separate repo)
-- Future: forge, helm, codex, argus (separate SDKs)
+- `/mnt/c/GitHub/fractary/faber/` - Faber core SDK (separate repo, published)
+- `/mnt/c/GitHub/fractary/codex/` - Codex core SDK (separate repo, published)
+- Future: forge, helm (separate SDKs)
 
 ### Key Documents to Reference
 - `CLAUDE.md` - Project instructions for Claude Code
 - `docs/specs/` - Full specifications (see CLAUDE.md for index)
-- This file - Conversation history and decisions
+- `docs/conversations/2025-10-06-package-split-and-cli-unification.md` - This file (package split & CLI unification)
+- `docs/conversations/2025-10-06-codex-cli-implementation.md` - Codex CLI integration details
 
 ### Core Principles (from CLAUDE.md)
 - Convention over configuration
@@ -568,13 +606,18 @@ b49e0c8 - Add test artifacts to gitignore
 
 ## Success Metrics Achieved
 
-✅ Published core SDK to npm
+✅ Published core SDK to npm (@fractary/faber)
 ✅ Split monolithic package successfully
 ✅ Updated CLI to use published core
 ✅ Decided on unified CLI strategy
-✅ Unpublished temporary package
+✅ Unpublished temporary package (@fractary/faber-cli)
+✅ Created unified CLI (@fractary/cli)
+✅ Restructured source code with tool routing
+✅ Integrated Codex CLI (7 commands)
+✅ Published @fractary/cli@0.1.1
 ✅ Documented all decisions and context
-⏸️ Pending: Complete CLI unification
+✅ Prepared repository URLs for final rename
+🔄 Pending: User to rename repository/directory fractary-cli → cli
 
 ---
 

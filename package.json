@@ -56,10 +56,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fractary/fractary-cli.git"
+    "url": "git+https://github.com/fractary/cli.git"
   },
   "bugs": {
-    "url": "https://github.com/fractary/fractary-cli/issues"
+    "url": "https://github.com/fractary/cli/issues"
   },
-  "homepage": "https://github.com/fractary/fractary-cli#readme"
+  "homepage": "https://github.com/fractary/cli#readme"
 }
