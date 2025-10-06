@@ -1,10 +1,35 @@
-# Faber-CLI Development Guide for Claude
+# Fractary CLI Development Guide for Claude
 
-This document provides critical context and implementation guidance for developing the Faber-CLI universal AI agent orchestration platform.
+This document provides critical context and implementation guidance for developing the unified Fractary CLI.
 
-## Project Vision
+## Project Overview
 
-Faber-CLI enables **write-once, deploy-everywhere** AI agent definitions through three-dimensional abstraction:
+**Fractary CLI** (`@fractary/cli`) is a unified command-line interface for all Fractary tools:
+- **faber** - Universal AI agent orchestration (write-once, deploy-everywhere)
+- **forge** - [Coming soon]
+- **helm** - [Coming soon]
+- **codex** - [Coming soon]
+- **argus** - [Coming soon]
+
+## Command Pattern
+
+All Fractary tools use the unified command pattern:
+```bash
+fractary <tool> <command> [options]
+```
+
+Examples:
+```bash
+fractary faber init
+fractary faber create role my-agent
+fractary faber build claude role my-agent
+fractary forge init
+fractary codex search <query>
+```
+
+## Project Vision (Faber)
+
+The **Faber** tool enables **write-once, deploy-everywhere** AI agent definitions through three-dimensional abstraction:
 1. **Framework Abstraction**: Deploy to any AI framework (Claude Code, LangGraph, CrewAI)
 2. **Platform Abstraction**: Work with any platform (GitHub, GitLab, Linear, Jira, AWS, GCP)
 3. **Organization Abstraction**: Customize for company/instance without forking
@@ -31,21 +56,41 @@ Faber-CLI enables **write-once, deploy-everywhere** AI agent definitions through
 ## Project Structure
 
 ```
-faber-cli/
+fractary-cli/
 ├── src/                        # TypeScript source code
-│   ├── cli/                    # CLI command implementations
-│   ├── core/                   # Core business logic
-│   │   ├── concepts/           # Concept loaders and validators
-│   │   ├── contexts/           # Context system
-│   │   ├── overlays/           # Overlay resolution
-│   │   └── platforms/          # Platform detection
-│   ├── bindings/               # Framework bindings
-│   │   └── claude-code/        # Claude Code binding (first)
-│   └── utils/                  # Utilities
-├── docs/specs/                 # Complete specifications
+│   ├── cli.ts                  # Main CLI entry with tool routing
+│   ├── tools/                  # Tool-specific commands
+│   │   ├── faber/             # Faber commands
+│   │   │   ├── init.ts
+│   │   │   ├── create.ts
+│   │   │   ├── build.ts
+│   │   │   ├── list.ts
+│   │   │   └── validate.ts
+│   │   ├── forge/             # Forge commands (coming soon)
+│   │   ├── helm/              # Helm commands (coming soon)
+│   │   ├── codex/             # Codex commands (coming soon)
+│   │   └── argus/             # Argus commands (coming soon)
+│   └── shared/                 # Shared utilities
+├── docs/
+│   ├── conversations/          # Session summaries
+│   └── specs/                  # Complete specifications (faber)
 ├── test/                       # Test suite
 └── examples/                   # Example concepts
 ```
+
+## Related Packages
+
+This CLI depends on core SDK packages for each tool:
+
+- **@fractary/faber** - Core SDK for faber (published to npm)
+  - Contains: loaders, bindings, transformers, types
+  - Location: `/mnt/c/GitHub/fractary/faber/`
+  - No CLI functionality (library only)
+
+- **@fractary/forge** - Core SDK for forge (coming soon)
+- **@fractary/helm** - Core SDK for helm (coming soon)
+- **@fractary/codex** - Core SDK for codex (coming soon)
+- **@fractary/argus** - Core SDK for argus (coming soon)
 
 ## Implementation Phases
 

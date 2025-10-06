@@ -1,6 +1,6 @@
-# Faber-CLI
+# Fractary CLI
 
-> Universal AI Agent Orchestration Platform - Write Once, Deploy Everywhere
+> Unified Command-Line Interface for All Fractary Tools
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](package.json)
@@ -8,51 +8,59 @@
 
 ## 🚀 Overview
 
-Faber-CLI is a revolutionary AI agent orchestration platform that enables you to define AI agents, tools, teams, and workflows in a universal format that can be deployed across multiple AI frameworks and adapted to different platforms and organizational contexts.
+Fractary CLI is a unified command-line interface that provides access to all Fractary tools through a single, consistent interface. No more installing separate CLIs for each tool - just install `@fractary/cli` and access everything.
 
-### Key Innovation: Three-Dimensional Abstraction
+### Fractary Tools
 
-1. **Framework Abstraction** - Deploy to any AI framework (Claude Code, LangGraph, CrewAI)
-2. **Platform Abstraction** - Work with any platform (GitHub, GitLab, Linear, Jira, AWS, GCP)
-3. **Organization Abstraction** - Customize for your company without forking
+- **🎯 Faber** - Universal AI agent orchestration (write-once, deploy-everywhere)
+- **⚒️ Forge** - [Coming soon]
+- **⎈ Helm** - [Coming soon]
+- **📚 Codex** - [Coming soon]
+- **👁️ Argus** - [Coming soon]
 
-## ✨ Features
+## 📦 Installation
 
-- **🎯 Universal Agent Definitions** - Define once, deploy anywhere
-- **🔌 Pluggable Bindings** - Transform to any AI framework
-- **🌍 Platform Contexts** - Adapt to any platform via MCP
-- **📝 Overlay System** - Customize without modifying source
-- **🧩 Composable Architecture** - Mix and match contexts, roles, teams
-- **📦 Minimal Deployments** - Intelligence lives in dynamically loaded contexts
-- **🔧 TypeScript First** - Full type safety and modern tooling
-
-## 📚 Documentation
-
-- [Getting Started](docs/getting-started.md) - Quick start guide
-- [Core Concepts](docs/concepts.md) - Understanding Faber's architecture
-- [CLI Reference](docs/cli-reference.md) - Command documentation
-- [Context System](docs/contexts.md) - Dynamic knowledge loading
-- [Overlay System](docs/overlays.md) - Customization without forking
-- [Binding System](docs/bindings.md) - Framework transformations
-- [Examples](docs/examples.md) - Tutorials and use cases
-- [API Reference](docs/api.md) - Developer documentation
-- [Contributing](docs/contributing.md) - How to contribute
+```bash
+npm install -g @fractary/cli
+```
 
 ## 🎬 Quick Start
 
-### Installation
+### Command Pattern
+
+All Fractary tools use a consistent command pattern:
 
 ```bash
-npm install -g @fractary/faber-cli
+fractary <tool> <command> [options]
 ```
 
-### Initialize a Project
+### Faber (AI Agent Orchestration)
 
+Faber enables **write-once, deploy-everywhere** AI agent definitions. Define agents once, deploy to any framework (Claude Code, LangGraph, CrewAI) and platform (GitHub, Linear, Jira).
+
+**Initialize a Faber project:**
 ```bash
-faber init
+fractary faber init
 ```
 
-This creates:
+**Create your first agent:**
+```bash
+fractary faber create role issue-manager --platforms github-issues,linear
+```
+
+**Validate and build:**
+```bash
+# Validate the role
+fractary faber validate role issue-manager
+
+# Build for Claude Code
+fractary faber build claude role issue-manager
+
+# List all concepts
+fractary faber list
+```
+
+**Project structure created:**
 ```
 .faber/
   config.yml              # Configuration
@@ -64,26 +72,30 @@ workflows/                # Cross-team orchestrations
 deployments/              # Generated artifacts
 ```
 
-### Create Your First Role
+### Other Tools (Coming Soon)
 
 ```bash
-faber create role issue-manager --platforms github-issues,linear
+# Forge
+fractary forge init
+fractary forge create service my-api
+
+# Codex
+fractary codex search <query>
+
+# Helm
+fractary helm deploy <env>
+
+# Argus
+fractary argus monitor <service>
 ```
 
-### Validate and Build
+## 🏗️ Faber Architecture
 
-```bash
-# Validate the role
-faber validate role issue-manager
+### Three-Dimensional Abstraction
 
-# Build for Claude Code
-faber build claude role issue-manager
-
-# List all concepts
-faber list
-```
-
-## 🏗️ Architecture
+1. **Framework Abstraction** - Deploy to any AI framework (Claude Code, LangGraph, CrewAI)
+2. **Platform Abstraction** - Work with any platform (GitHub, GitLab, Linear, Jira, AWS, GCP)
+3. **Organization Abstraction** - Customize for your company without forking
 
 ### Five First-Class Concepts
 
@@ -103,7 +115,7 @@ faber list
 - **References** - API and framework documentation
 - **Troubleshooting** - Issue resolution guides
 
-## 🔄 How It Works
+## 🔄 How Faber Works
 
 ### 1. Define Once
 
@@ -132,10 +144,30 @@ All issues must include customer impact assessment...
 Build for any framework:
 
 ```bash
-faber build claude role issue-manager     # → .claude/agents/
-faber build langgraph role issue-manager  # → langgraph/graphs/
-faber build crewai role issue-manager     # → crewai/agents/
+fractary faber build claude role issue-manager     # → .claude/agents/
+fractary faber build langgraph role issue-manager  # → langgraph/graphs/
+fractary faber build crewai role issue-manager     # → crewai/agents/
 ```
+
+## ✨ Benefits
+
+### Single Installation
+Install one CLI for all Fractary tools instead of managing multiple packages.
+
+### Consistent Interface
+All tools follow the same command pattern: `fractary <tool> <command>`
+
+### No Naming Conflicts
+Main command is just `fractary` - no conflicts with existing tools.
+
+### Lazy Loading
+Commands are loaded on-demand for better performance.
+
+### Unified Updates
+Update all tools together with a single `npm update -g @fractary/cli`.
+
+### Shared Utilities
+Common functionality shared across all tools reduces duplication.
 
 ## 🎯 Use Cases
 
@@ -143,20 +175,37 @@ faber build crewai role issue-manager     # → crewai/agents/
 - Rapid AI agent prototyping
 - Framework experimentation
 - Platform flexibility
+- Access all Fractary tools from one CLI
 
 ### For Organizations
 - Inject company standards without forking
 - Consistent agents across teams
 - Environment-specific configurations
+- Centralized tooling management
 
 ### For Open Source
 - Distribute reusable agent definitions
 - Community contributions
 - Multi-framework support
 
+## 📚 Documentation
+
+### Faber Documentation
+- [Getting Started](docs/faber/getting-started.md)
+- [Core Concepts](docs/faber/concepts.md)
+- [CLI Reference](docs/faber/cli-reference.md)
+- [Context System](docs/faber/contexts.md)
+- [Overlay System](docs/faber/overlays.md)
+- [Binding System](docs/faber/bindings.md)
+- [Examples](docs/faber/examples.md)
+
+### General
+- [CLI Architecture](docs/architecture.md)
+- [Contributing](docs/contributing.md)
+
 ## 🛠️ Current Implementation Status
 
-### ✅ Complete
+### ✅ Complete (Faber)
 - Core concept system (Roles)
 - Context system (7 categories)
 - Overlay system
@@ -164,11 +213,17 @@ faber build crewai role issue-manager     # → crewai/agents/
 - Claude Code binding
 - CLI commands (init, create, list, validate, build)
 
-### 🚧 In Progress
-- Additional concept loaders (Tools, Teams, Workflows)
+### 🚧 In Progress (Faber)
+- Additional concept loaders (Tools, Teams, Workflows, Evals)
 - LangGraph and CrewAI bindings
 - MCP server integration
 - Deploy command
+
+### 📋 Planned
+- Forge tool integration
+- Helm tool integration
+- Codex tool integration
+- Argus tool integration
 
 ## 🤝 Contributing
 
@@ -178,8 +233,8 @@ We welcome contributions! Please see our [Contributing Guide](docs/contributing.
 
 ```bash
 # Clone the repository
-git clone https://github.com/fractary/faber-cli.git
-cd faber-cli
+git clone https://github.com/fractary/fractary-cli.git
+cd fractary-cli
 
 # Install dependencies
 npm install
@@ -192,7 +247,21 @@ npm test
 
 # Link for local development
 npm link
+
+# Test the CLI
+fractary --help
+fractary faber init
 ```
+
+## 📦 Related Packages
+
+Fractary CLI depends on core SDK packages for each tool:
+
+- **[@fractary/faber](https://www.npmjs.com/package/@fractary/faber)** - Core SDK for Faber
+- **@fractary/forge** - Core SDK for Forge (coming soon)
+- **@fractary/helm** - Core SDK for Helm (coming soon)
+- **@fractary/codex** - Core SDK for Codex (coming soon)
+- **@fractary/argus** - Core SDK for Argus (coming soon)
 
 ## 📄 License
 
@@ -206,10 +275,10 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 📮 Support
 
-- **Issues**: [GitHub Issues](https://github.com/fractary/faber-cli/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/fractary/faber-cli/discussions)
+- **Issues**: [GitHub Issues](https://github.com/fractary/fractary-cli/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/fractary/fractary-cli/discussions)
 - **Email**: support@fractary.com
 
 ---
 
-**Faber-CLI** - *Empowering AI orchestration without boundaries*
+**Fractary CLI** - *One CLI for all Fractary tools*
