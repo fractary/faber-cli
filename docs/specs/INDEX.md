@@ -42,6 +42,11 @@ First binding implementation, output structure, agent file format, and transform
 ### [SPEC-0012: MCP Server Integration](./SPEC-0012-mcp-server-integration.md)
 MCP server relationship to platforms, configuration, dependency resolution, and fallback strategies.
 
+## Unified CLI Specs
+
+### [SPEC-0013: Codex CLI Integration](./SPEC-0013-codex-cli-integration.md)
+Codex knowledge management CLI commands, SDK integration, metadata validation, routing analysis, and configuration management.
+
 ## Reading Order
 
 ### For Understanding the Vision
